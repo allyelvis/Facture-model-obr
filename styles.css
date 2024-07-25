@@ -1,113 +1,119 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    flex-direction: column;
-}
-
-.container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 100%;
     margin: 20px;
 }
 
-h1, h2 {
+h1 {
     text-align: center;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+h2 {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 label {
-    margin-top: 10px;
+    display: block;
+    margin: 5px 0;
 }
 
-input, button {
-    margin-top: 5px;
-}
-
-.item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.item input {
-    margin-right: 10px;
-    flex: 1;
-    min-width: 100px;
+input[type="text"], input[type="date"], input[type="number"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 button {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #007BFF;
-    color: #fff;
+    background-color: #4CAF50;
+    color: white;
     border: none;
-    border-radius: 5px;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px 2px;
     cursor: pointer;
-    flex: 1;
+    border-radius: 4px;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #45a049;
 }
 
-#invoicePreview table {
-    width: 100%;
-    border-collapse: collapse;
+#items {
+    margin-bottom: 20px;
 }
 
-#invoicePreview th, #invoicePreview td {
-    padding: 10px;
+#invoicePreview {
     border: 1px solid #ddd;
-    text-align: left;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #f9f9f9;
 }
 
-#invoicePreview th {
-    background-color: #f2f2f2;
+button[type="button"] {
+    background-color: #008CBA;
 }
 
-footer {
-    text-align: center;
-    margin-top: 20px;
-    color: #666;
-    font-size: 0.9em;
+button[type="button"]:hover {
+    background-color: #007bb5;
 }
 
-/* Responsive Styles */
-@media (max-width: 600px) {
-    .container {
+/* Responsive design */
+@media (max-width: 768px) {
+    form {
         padding: 10px;
     }
-    
-    h1, h2 {
-        font-size: 1.5em;
-    }
 
-    button {
-        margin-top: 10px;
+    input[type="text"], input[type="date"], input[type="number"] {
+        width: calc(100% - 20px);
         padding: 8px;
     }
 
-    #invoicePreview table, #invoicePreview th, #invoicePreview td {
-        font-size: 0.9em;
+    button {
+        width: 100%;
+        padding: 12px;
+        font-size: 18px;
     }
 
-    .item input {
-        margin-top: 5px;
-        min-width: 100%;
+    #items {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    form {
+        padding: 5px;
+    }
+
+    input[type="text"], input[type="date"], input[type="number"] {
+        width: calc(100% - 16px);
+        padding: 6px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    #invoicePreview {
+        padding: 10px;
     }
 }
