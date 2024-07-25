@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facture OBR</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Generate Invoice</h1>
+        <form id="invoiceForm">
+            <h3>Seller Information</h3>
+            <label for="sellerName">Seller Name:</label>
+            <input type="text" id="sellerName" name="sellerName" required>
+            
+            <label for="sellerAddress">Seller Address:</label>
+            <input type="text" id="sellerAddress" name="sellerAddress" required>
+            
+            <label for="companyNIF">Company NIF:</label>
+            <input type="text" id="companyNIF" name="companyNIF" required>
+            
+            <label for="legalForm">Legal Form:</label>
+            <input type="text" id="legalForm" name="legalForm" required>
+            
+            <label for="tradeRegister">Trade Register:</label>
+            <input type="text" id="tradeRegister" name="tradeRegister" required>
+            
+            <label for="sellerContact">Contact:</label>
+            <input type="text" id="sellerContact" name="sellerContact" required>
+            
+            <label for="vatSubjected">VAT Subjected:</label>
+            <input type="text" id="vatSubjected" name="vatSubjected" required>
+
+            <h3>Buyer Information</h3>
+            <label for="buyerName">Buyer Name:</label>
+            <input type="text" id="buyerName" name="buyerName" required>
+            
+            <label for="buyerAddress">Buyer Address:</label>
+            <input type="text" id="buyerAddress" name="buyerAddress" required>
+            
+            <label for="invoiceDate">Invoice Date:</label>
+            <input type="date" id="invoiceDate" name="invoiceDate" required>
+            
+            <h3>Items</h3>
+            <div id="items">
+                <div class="item">
+                    <input type="text" class="itemDescription" placeholder="Description" required>
+                    <input type="number" class="itemQuantity" placeholder="Quantity" required>
+                    <input type="number" class="itemPrice" placeholder="Price" required>
+                    <button type="button" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+            <button type="button" onclick="addItem()">Add Item</button>
+            
+            <button type="submit">Generate Invoice</button>
+        </form>
+        
+        <h2>Invoice Preview</h2>
+        <div id="invoicePreview"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
