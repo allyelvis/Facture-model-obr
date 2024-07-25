@@ -3,76 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facture OBR</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Invoice Generator</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Generate Invoice</h1>
-        <form id="invoiceForm">
-            <h3>Seller Information</h3>
-            <label for="sellerName">Seller Name:</label>
-            <input type="text" id="sellerName" name="sellerName" required>
-            
-            <label for="sellerAddress">Seller Address:</label>
-            <input type="text" id="sellerAddress" name="sellerAddress" required>
-            
-            <label for="companyNIF">Company NIF:</label>
-            <input type="text" id="companyNIF" name="companyNIF" required>
-            
-            <label for="legalForm">Legal Form:</label>
-            <input type="text" id="legalForm" name="legalForm" required>
-            
-            <label for="tradeRegister">Trade Register:</label>
-            <input type="text" id="tradeRegister" name="tradeRegister" required>
-            
-            <label for="sellerContact">Contact:</label>
-            <input type="text" id="sellerContact" name="sellerContact" required>
-            
-            <label for="vatSubjected">VAT Subjected:</label>
-            <input type="text" id="vatSubjected" name="vatSubjected" required>
+    <h1>Invoice Generator</h1>
+    <form id="invoiceForm">
+        <h2>Seller Information</h2>
+        <label for="sellerName">Seller Name:</label>
+        <input type="text" id="sellerName" required><br>
+        <label for="sellerAddress">Seller Address:</label>
+        <input type="text" id="sellerAddress" required><br>
+        <label for="companyNIF">Company NIF:</label>
+        <input type="text" id="companyNIF" required><br>
+        <label for="legalForm">Legal Form:</label>
+        <input type="text" id="legalForm" required><br>
+        <label for="tradeRegister">Trade Register:</label>
+        <input type="text" id="tradeRegister" required><br>
+        <label for="sellerContact">Seller Contact:</label>
+        <input type="text" id="sellerContact" required><br>
+        <label for="vatSubjected">VAT Subjected:</label>
+        <input type="text" id="vatSubjected" required><br>
 
-            <h3>Buyer Information</h3>
-            <label for="buyerName">Buyer Name:</label>
-            <input type="text" id="buyerName" name="buyerName" required>
-            
-            <label for="buyerAddress">Buyer Address:</label>
-            <input type="text" id="buyerAddress" name="buyerAddress" required>
-            
-            <label for="invoiceDate">Invoice Date:</label>
-            <input type="date" id="invoiceDate" name="invoiceDate" required>
-            
-            <h3>Items</h3>
-            <div id="items">
-                <div class="item">
-                    <input type="text" class="itemDescription" placeholder="Description" required>
-                    <input type="number" class="itemQuantity" placeholder="Quantity" required>
-                    <input type="number" class="itemPrice" placeholder="Price" required>
-                    <button type="button" onclick="removeItem(this)">Remove</button>
-                </div>
-            </div>
-            <button type="button" onclick="addItem()">Add Item</button>
-            
-            <button type="submit">Generate Invoice</button>
-        </form>
-        
-        <h2>Invoice Preview</h2>
-        <div id="invoicePreview"></div>
-        
-        <div id="actions">
-            <button onclick="listInvoices()">List Invoices</button>
-            <button onclick="listProducts()">List Products</button>
-            <button onclick="listCustomers()">List Customers</button>
-            <button onclick="getPayment()">Get Payment</button>
-            <button onclick="generateBill()">Generate Bill</button>
-            <button onclick="printOrSaveBill()">Print or Save Bill</button>
-            <button onclick="listBills()">List Bills</button>
-            <button onclick="editOrder()">Edit Order</button>
-            <button onclick="deleteOrder()">Delete Order</button>
-            <button onclick="cancelInvoice()">Cancel Invoice</button>
-            <button onclick="placeOrder()">Place Order</button>
-        </div>
-    </div>
+        <h2>Buyer Information</h2>
+        <label for="buyerName">Buyer Name:</label>
+        <input type="text" id="buyerName" required><br>
+        <label for="buyerAddress">Buyer Address:</label>
+        <input type="text" id="buyerAddress" required><br>
+
+        <h2>Invoice Details</h2>
+        <label for="invoiceDate">Invoice Date:</label>
+        <input type="date" id="invoiceDate" required><br>
+
+        <h2>Items</h2>
+        <div id="items"></div>
+        <button type="button" onclick="addItem()">Add Item</button><br><br>
+
+        <button type="submit">Generate Invoice</button>
+    </form>
+
+    <h2>Invoice Preview</h2>
+    <div id="invoicePreview"></div>
+
+    <h2>Invoice Management</h2>
+    <button type="button" onclick="listInvoices()">List Invoices</button>
+    <button type="button" onclick="listProducts()">List Products</button>
+    <button type="button" onclick="listCustomers()">List Customers</button>
+    <button type="button" onclick="getPayment()">Get Payment</button>
+    <button type="button" onclick="generateBill()">Generate Bill</button>
+    <button type="button" onclick="printOrSaveBill()">Print/Save Bill</button>
+    <button type="button" onclick="listBills()">List Bills</button>
+    <button type="button" onclick="editOrder()">Edit Order</button>
 
     <script src="script.js"></script>
 </body>
