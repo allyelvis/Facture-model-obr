@@ -151,3 +151,112 @@ function editOrder() {
     // Edit an existing order
     console.log('Editing order...');
 }
+// Example script.js
+document.getElementById('invoiceForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    generateInvoice();
+});
+
+function addItem() {
+    const itemsDiv = document.getElementById('items');
+    const newItem = document.createElement('div');
+    newItem.innerHTML = `
+        <label>Item Name:</label>
+        <input type="text" class="itemName" required>
+        <label>Quantity:</label>
+        <input type="number" class="itemQuantity" required>
+        <label>Price:</label>
+        <input type="number" class="itemPrice" required>
+        <br>
+    `;
+    itemsDiv.appendChild(newItem);
+}
+
+function generateInvoice() {
+    const invoice = {
+        seller: {
+            name: document.getElementById('sellerName').value,
+            address: document.getElementById('sellerAddress').value,
+            companyNIF: document.getElementById('companyNIF').value,
+            legalForm: document.getElementById('legalForm').value,
+            tradeRegister: document.getElementById('tradeRegister').value,
+            contact: document.getElementById('sellerContact').value,
+            vatSubjected: document.getElementById('vatSubjected').value,
+        },
+        buyer: {
+            name: document.getElementById('buyerName').value,
+            address: document.getElementById('buyerAddress').value,
+        },
+        date: document.getElementById('invoiceDate').value,
+        items: []
+    };
+
+    const itemNames = document.getElementsByClassName('itemName');
+    const itemQuantities = document.getElementsByClassName('itemQuantity');
+    const itemPrices = document.getElementsByClassName('itemPrice');
+
+    for (let i = 0; i < itemNames.length; i++) {
+        invoice.items.push({
+            name: itemNames[i].value,
+            quantity: itemQuantities[i].value,
+            price: itemPrices[i].value
+        });
+    }
+
+    const invoicePreview = document.getElementById('invoicePreview');
+    invoicePreview.innerHTML = JSON.stringify(invoice, null, 2);
+
+    // Save invoice to database (localStorage for simplicity)
+    const invoices = JSON.parse(localStorage.getItem('invoices')) || [];
+    invoices.push(invoice);
+    localStorage.setItem('invoices', JSON.stringify(invoices));
+
+    alert('Invoice generated and saved!');
+}
+
+function listInvoices() {
+    const invoices = JSON.parse(localStorage.getItem('invoices')) || [];
+    alert('Invoices: ' + JSON.stringify(invoices, null, 2));
+}
+
+function listProducts() {
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+    alert('Products: ' + JSON.stringify(products, null, 2));
+}
+
+function listCustomers() {
+    const customers = JSON.parse(localStorage.getItem('customers')) || [];
+    alert('Customers: ' + JSON.stringify(customers, null, 2));
+}
+
+function getPayment() {
+    alert('Payment functionality not implemented yet.');
+}
+
+function generateBill() {
+    alert('Bill generation functionality not implemented yet.');
+}
+
+function printOrSaveBill() {
+    alert('Print/Save bill functionality not implemented yet.');
+}
+
+function listBills() {
+    const bills = JSON.parse(localStorage.getItem('bills')) || [];
+    alert('Bills: ' + JSON.stringify(bills, null, 2));
+}
+
+function editOrder() {
+    alert('Edit order functionality not implemented yet.');
+}
+
+// Initialize database with default admin login
+function initializeDatabase() {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    if (!users.find(user => user.username === 'admin')) {
+        users.push({ username: 'admin', password: '' });
+        localStorage.setItem('users', JSON.stringify(users));
+    }
+}
+
+initializeDatabase();
