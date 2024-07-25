@@ -84,4 +84,69 @@ function generateInvoice() {
     `;
 
     document.getElementById('invoicePreview').innerHTML = invoiceHtml;
+
+    // Save the invoice
+    saveInvoice({
+        sellerName,
+        sellerAddress,
+        companyNIF,
+        legalForm,
+        tradeRegister,
+        sellerContact,
+        vatSubjected,
+        buyerName,
+        buyerAddress,
+        invoiceDate,
+        items,
+        totalAmount
+    });
 }
+
+function saveInvoice(invoice) {
+    const invoices = JSON.parse(localStorage.getItem('invoices') || '[]');
+    invoices.push(invoice);
+    localStorage.setItem('invoices', JSON.stringify(invoices));
+}
+
+function listInvoices() {
+    const invoices = JSON.parse(localStorage.getItem('invoices') || '[]');
+    console.log('Invoices:', invoices);
+    // Display invoices in a suitable format (e.g., table or list)
+}
+
+function listProducts() {
+    const products = JSON.parse(localStorage.getItem('products') || '[]');
+    console.log('Products:', products);
+    // Display products in a suitable format (e.g., table or list)
+}
+
+function listCustomers() {
+    const customers = JSON.parse(localStorage.getItem('customers') || '[]');
+    console.log('Customers:', customers);
+    // Display customers in a suitable format (e.g., table or list)
+}
+
+function getPayment() {
+    // Handle payment process
+    console.log('Getting payment...');
+}
+
+function generateBill() {
+    // Generate bill from the invoice
+    console.log('Generating bill...');
+}
+
+function printOrSaveBill() {
+    // Print or save the bill
+    console.log('Printing or saving bill...');
+}
+
+function listBills() {
+    const bills = JSON.parse(localStorage.getItem('bills') || '[]');
+    console.log('Bills:', bills);
+    // Display bills in a suitable format (e.g., table or list)
+}
+
+function editOrder() {
+    // Edit an existing order
+    console.log('Editing order...');
