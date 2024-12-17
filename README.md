@@ -21,8 +21,8 @@ This project is a web application for generating and managing invoices, integrat
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/AllyElvis/your-repo.git
-    cd your-repo
+    git clone https://github.com/AllyElvis/Facture-model-obr.git
+    cd Facture-model-obr
     ```
 
 2. Open the `index.html` file in your web browser.
